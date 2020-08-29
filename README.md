@@ -1,4 +1,12 @@
-# Pdfium Android library
+<div>
+  <h2 float="left"> Pdfium Android library</h2>           
+
+<p float="right">
+<img src="https://github.com/MichelMelhem/Pdfium-Android/blob/master/assets/chromiun.jpg" height="100" alt="Bloc" />
+</p>
+ </div>
+
+                                 
 
 So this library  an updated version of android pdfium.
 This library maintain compactibility with [Android PdfViewer](https://github.com/barteksc/AndroidPdfViewer).
@@ -35,3 +43,4 @@ Some portion of jni code shared with:
   * https://github.com/pvginkel/PdfiumViewer/wiki/Building-PDFium
   * https://github.com/barteksc/PdfiumAndroid
   * https://gitlab.com/axet/android-pdfium
+                         
