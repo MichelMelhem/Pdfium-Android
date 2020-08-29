@@ -1,0 +1,43 @@
+{
+  "stringTable": {
+    "0": "E:/code/android-pdfium/.cxx/cmake/release/armeabi-v7a",
+    "1": "--target=armv7-none-linux-androideabi19 --gcc-toolchain=C:/Users/Michel/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Michel/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_PTHREADS -Dpdfiumjni_EXPORTS -I../../../../src/main/cpp -I../../../../libmodpdfium/src/main/cpp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security -Oz -DNDEBUG -fPIC"
+  },
+  "buildFiles": [
+    "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669\\build\\cmake\\platforms.cmake",
+    "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake",
+    "E:\\code\\android-pdfium\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\code\\android-pdfium\\.cxx\\cmake\\release\\armeabi-v7a\" clean"
+  ],
+  "buildTargetsCommand": "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\code\\android-pdfium\\.cxx\\cmake\\release\\armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "pdfiumjni-Release-armeabi-v7a": {
+      "buildCommand": "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\code\\android-pdfium\\.cxx\\cmake\\release\\armeabi-v7a\" pdfiumjni",
+      "buildType": "release",
+      "toolchain": "3070193719",
+      "abi": "armeabi-v7a",
+      "artifactName": "pdfiumjni",
+      "files": [
+        {
+          "src": "E:\\code\\android-pdfium\\src\\main\\cpp\\jni.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "E:\\code\\android-pdfium\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a\\libpdfiumjni.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "3070193719": {
+      "cppCompilerExecutable": "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

@@ -1,0 +1,48 @@
+diff --git a/BUILD.gn b/BUILD.gn
+index 62f09e580..7d9aaf34a 100644
+--- a/BUILD.gn
++++ b/BUILD.gn
+@@ -15,12 +15,13 @@ group("freetype_common") {
+ }
+ 
+ config("pdfium_common_config") {
+-  cflags = []
++  cflags = [ "-fvisibility=default" ]
+   ldflags = []
+   include_dirs = [ "." ]
+   defines = [
+     "PNG_PREFIX",
+     "PNG_USE_READ_MACROS",
++    "FPDFSDK_EXPORTS"
+   ]
+ 
+   if (!use_system_libopenjpeg2) {
+@@ -138,6 +139,12 @@ group("pdfium_public_headers") {
+   ]
+ }
+ 
++shared_library("modpdfium") {
++  deps = [":pdfium"]
++  ldflags = [ "-latomic" ]
++  configs -= [ "//build/config/android:hide_all_but_jni_onload" ]
++}
++
+ component("pdfium") {
+   libs = []
+   configs += [ ":pdfium_core_config" ]
+diff --git a/build_overrides/build.gni b/build_overrides/build.gni
+index bb1525380..b751e2466 100644
+--- a/build_overrides/build.gni
++++ b/build_overrides/build.gni
+@@ -22,11 +22,6 @@ default_android_ndk_major_version = 16
+ # PDFium builds don't support building java targets.
+ enable_java_templates = false
+ 
+-# Whether to use the neon FPU instruction set or not.
+-if (current_cpu == "arm") {
+-  arm_use_neon = true
+-}
+-
+ # PDFium builds don't use Chromium's third_party/binutils.
+ linux_use_bundled_binutils_override = false
+ 

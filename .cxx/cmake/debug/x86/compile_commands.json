@@ -1,0 +1,7 @@
+[
+{
+  "directory": "E:/code/android-pdfium/.cxx/cmake/debug/x86",
+  "command": "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android19 --gcc-toolchain=C:/Users/Michel/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Michel/AppData/Local/Android/Sdk/ndk/21.0.6113669/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -DHAVE_PTHREADS -Dpdfiumjni_EXPORTS -I../../../../src/main/cpp -I../../../../libmodpdfium/src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\pdfiumjni.dir\\src\\main\\cpp\\jni.cpp.o -c E:\\code\\android-pdfium\\src\\main\\cpp\\jni.cpp",
+  "file": "E:/code/android-pdfium/src/main/cpp/jni.cpp"
+}
+]

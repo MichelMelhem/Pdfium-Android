@@ -1,0 +1,3 @@
+-keep class com.github.axet.pdfium.PdfiumCore {*;}
+-keep class com.github.axet.pdfium.util.Size {*;}
+-keep class com.github.axet.pdfium.util.SizeF {*;}

@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669\\build\\cmake\\platforms.cmake",
+    "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669\\build\\cmake\\android.toolchain.cmake",
+    "E:\\code\\android-pdfium\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\code\\android-pdfium\\.cxx\\cmake\\debug\\x86\" clean"
+  ],
+  "buildTargetsCommand": "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\code\\android-pdfium\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "pdfiumjni-Debug-x86": {
+      "artifactName": "pdfiumjni",
+      "buildCommand": "C:\\Users\\Michel\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\code\\android-pdfium\\.cxx\\cmake\\debug\\x86\" pdfiumjni",
+      "abi": "x86",
+      "output": "E:\\code\\android-pdfium\\build\\intermediates\\cmake\\debug\\obj\\x86\\libpdfiumjni.so",
+      "runtimeFiles": []
+    }
+  }
+}

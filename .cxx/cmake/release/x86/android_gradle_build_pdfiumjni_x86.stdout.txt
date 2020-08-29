@@ -1,0 +1,2 @@
+ninja: Entering directory `E:\code\android-pdfium\.cxx\cmake\release\x86'
+ninja: no work to do.

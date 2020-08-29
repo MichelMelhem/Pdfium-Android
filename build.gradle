@@ -1,0 +1,141 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        google()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath 'digital.wup:android-maven-publish:3.6.2'
+    }
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    google()
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'signing'
+apply plugin: 'digital.wup.android-maven-publish' // 'gradle publishToMavenLocal' and 'publish' tasks
+
+android {
+    compileSdkVersion 28
+
+    // http://stackoverflow.com/questions/35312743/workaround-to-link-a-shared-library-in-debug-mode-with-android-studio-v2
+    defaultPublishConfig 'release'
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 21
+        versionName "2.0.15"
+        consumerProguardFiles 'consumer-proguard-rules.pro'
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+    }
+    buildTypes {
+        debug {
+            debuggable true
+            jniDebuggable true
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    ndkVersion '21.0.6113669'
+}
+
+// https://docs.gradle.org/current/userguide/publishing_maven.html
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(project.android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier  = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier  = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+def prop(String name) {
+    project.hasProperty(name) ? project.getProperty(name) : null
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId 'com.github.axet'
+            artifactId 'pdfium'
+            version android.defaultConfig.versionName
+
+            from components.android
+            artifact sourcesJar
+            artifact javadocJar
+
+            pom {
+                name = 'Android PdfiumAndroid Library'
+                description = 'PdfiumAndroid base classes.'
+                url = 'https://gitlab.com/axet/android-pdfium'
+                licenses {
+                    license {
+                        name = 'The Apache Software License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'axet'
+                        name = 'Alexey Kuznetsov'
+                        email = 'axet@me.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:' + pom.url.get()
+                    developerConnection = 'scm:git:' + pom.url.get()
+                    url = pom.url
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username prop('ossrhUsername')
+                password prop('ossrhPassword')
+            }
+       }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+dependencies {
+     api project(":libmodpdfium")
+//    debugApi project(path:':android-vorbis:libvorbis', configuration:'libraryDebug')
+    annotationProcessor "org.androidannotations:androidannotations:4.7.0"
+    testImplementation 'junit:junit:4.12'
+}
